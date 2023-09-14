@@ -21,9 +21,92 @@
       </p>
     </div>
     <div class="main">
-      <div class="information-container"></div>
-      <form action="" method="post"></form>
-      <p class="login-text"></p>
+      <div class="information-container">
+        <p>
+          This is not a real online service! You know you need something like
+          this in your life to help you realize your deepest dreams.
+        </p>
+        <p>Sign up <em>now</em> to get started.</p>
+        <p>You <em>know</em> you want to.</p>
+      </div>
+      <form action="" method="post">
+        <section class="input-section">
+          <h1>Let's do this!</h1>
+          <div class="input-group">
+            <p class="input-minibox">
+              <label for="first-name">FIRST NAME</label>
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                placeholder="Paul"
+              />
+            </p>
+            <p class="input-minibox">
+              <label for="last-name">LAST NAME</label>
+              <input
+                type="text"
+                name="last-name"
+                id="last-name"
+                placeholder="Lopez"
+              />
+            </p>
+          </div>
+          <div class="input-group">
+            <p class="input-minibox">
+              <label for="user-email">EMAIL</label>
+              <input type="email" name="user-email" id="user-email" />
+            </p>
+            <p class="input-minibox">
+              <label for="phone-num">PHONE NUMBER</label>
+              <input type="tel" name="phone-num" id="phone-num" />
+            </p>
+          </div>
+          <div class="input-group">
+            <p class="input-minibox">
+              <label for="user-pass">PASSWORD</label>
+              <input class="" type="password" name="user-pass" id="user-pass" />
+              <span class="pass-error-msg">* Passwords do not match</span>
+            </p>
+            <p class="input-minibox">
+              <label for="confirm-pass">CONFIRM PASSWORD</label>
+              <input
+                class=""
+                type="password"
+                name="confirm-pass"
+                id="confirm-pass"
+              />
+              <span class="pass-error-msg">* Passwords do not match</span>
+            </p>
+          </div>
+        </section>
+        <button class="create-button" type="submit">Create Account</button>
+      </form>
+      <p class="login-text">Already have an account? <a href="">Log in</a></p>
     </div>
+
+    <script>
+      const password_nodes = document.querySelectorAll(
+        "input[type='password']"
+      );
+      const password_inputs = Array.from(password_nodes);
+
+      password_inputs.forEach((input) => {
+        input.addEventListener("input", (event) => {
+          let main = password_inputs[0].value;
+          let confirm = password_inputs[1].value;
+
+          if (main == confirm) {
+            password_inputs.forEach((input) => {
+              input.className = "";
+            });
+          } else {
+            password_inputs.forEach((input) => {
+              input.className = "error";
+            });
+          }
+        });
+      });
+    </script>
   </body>
 </html>
